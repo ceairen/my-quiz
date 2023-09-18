@@ -1,0 +1,30 @@
+.quizForm {
+    --quiz-width: 350px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    width: var(--quiz-width);
+    padding: 25px;
+}
+
+.quizForm > h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.quizFormGroup {
+    margin-bottom: 25px;
+}
+
+.quizFormGroup > label {
+    margin-bottom: 5px;
+}
+
+.quizFormGroup > label, .quizFormGroup > select, .quizFormGroup > input {
+    display: block;
+    width: 100%;
+}
+
+.quizFormError {
+    color: crimson;
+}
