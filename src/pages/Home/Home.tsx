@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import apiInstance from "../../utils/api";
-import { TCategory, TDifficulty, TQuiz } from "../../utils/types";
+import { useState } from "react";
+import { TQuiz } from "../../utils/types";
 import "./Home.css";
-import Loader from "../../components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 import QuizCreation from "./QuizCreation/QuizCreation";
 import QuizContent from "./QuizContent/QuizContent";
