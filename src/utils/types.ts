@@ -11,6 +11,7 @@ export type TQuizQuestion = {
     difficulty: string;
     incorrect_answers: string[];
     randomized_answers: string[];
+    player_answer: string;
     question: string;
     type: string;
 }

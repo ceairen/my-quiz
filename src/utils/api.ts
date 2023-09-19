@@ -55,6 +55,7 @@ class Api {
           ...question.incorrect_answers,
           question.correct_answer,
         ]);
+        question.player_answer = null;
         return question;
       });
       return Promise.resolve(quiz);

@@ -1,0 +1,26 @@
+section {
+    flex-direction: column;
+}
+
+.resultsActions {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.resultsActions > p {
+    display: block;
+    width: 100%;
+}
+
+.resultsActions > p.low {
+    background-color: crimson;
+}
+
+.resultsActions > p.medium {
+    background-color: yellow;
+}
+
+.resultsActions > p.high {
+    background-color: #4caf50;
+}

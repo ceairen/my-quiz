@@ -28,3 +28,74 @@
 .quizFormError {
     color: crimson;
 }
+
+.quizGame {
+    --quiz-width: 750px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    width: var(--quiz-width);
+    padding: 25px;
+}
+
+.quizGame > h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.quizQuestions > li > label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.quizQuestions > li {
+    margin-bottom: 15px;
+}
+
+.quizAnswers {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.quizAnswers > li > button {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+    color: #525151;
+}
+
+.quizAnswers > li > button:disabled {
+    cursor: default;
+}
+
+.quizAnswers > li > button.selected {
+    background-color: #03a9f4;
+    color: white;
+}
+
+.quizAnswers > li > button.success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.quizAnswers > li > button.error {
+    background-color: crimson;
+    color: white;
+}
+
+.quizAnswers > li:not(:last-child) > button {
+    margin-right: 5px;
+}
+
+.quizButtons {
+    display: flex;
+}
+
+.quizButtons > button {
+    margin-right: 5px;
+}
+
