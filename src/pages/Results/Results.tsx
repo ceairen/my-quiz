@@ -16,13 +16,15 @@ export default function Results() {
   }
 
   function countCorrectAnswers(quiz: TQuiz): number {
-    return quiz.filter(
-      (q) => q.correct_answer === q.player_answer
-    ).length;
+    return quiz.filter((q) => q.correct_answer === q.player_answer).length;
   }
 
   function getPClassColor(score: number) {
-    return score >= 0 && score < 2 ? 'low' : score >= 2 && score < 4 ? 'medium' : 'high'
+    return score >= 0 && score < 2
+      ? "low"
+      : score >= 2 && score < 4
+      ? "medium"
+      : "high";
   }
 
   useEffect(() => {
@@ -42,14 +44,14 @@ export default function Results() {
         <QuizContent mode="read" quiz={currentQuiz} />
       )}
       <div className="resultsActions">
-        {
-          currentQuiz !== null
-          ? <p className={getPClassColor(countCorrectAnswers(currentQuiz))}>{`You scored ${countCorrectAnswers(currentQuiz)} out of ${currentQuiz.length}`}</p>
-          : null
-        }
-        <button onClick={handleCreateNewQuiz}>
-          Create a new quiz
-        </button>
+        {currentQuiz !== null ? (
+          <p
+            className={getPClassColor(countCorrectAnswers(currentQuiz))}
+          >{`You scored ${countCorrectAnswers(currentQuiz)} out of ${
+            currentQuiz.length
+          }`}</p>
+        ) : null}
+        <button onClick={handleCreateNewQuiz}>Create a new quiz</button>
       </div>
     </section>
   );

@@ -1,12 +1,12 @@
 .quizForm {
-    --quiz-width: 350px;
+    --quiz-form-width: 350px;
     background-color: #f3f3f3;
     border-radius: 5px;
-    width: var(--quiz-width);
+    width: var(--quiz-form-width);
     padding: 25px;
 }
 
-.quizForm > h1 {
+.quizForm>h1 {
     width: 100%;
     text-align: center;
     margin-bottom: 25px;
@@ -16,11 +16,13 @@
     margin-bottom: 25px;
 }
 
-.quizFormGroup > label {
+.quizFormGroup>label {
     margin-bottom: 5px;
 }
 
-.quizFormGroup > label, .quizFormGroup > select, .quizFormGroup > input {
+.quizFormGroup>label,
+.quizFormGroup>select,
+.quizFormGroup>input {
     display: block;
     width: 100%;
 }
@@ -30,25 +32,25 @@
 }
 
 .quizGame {
-    --quiz-width: 750px;
+    --quiz-game-width: 750px;
     background-color: #f3f3f3;
     border-radius: 5px;
-    width: var(--quiz-width);
+    width: var(--quiz-game-width);
     padding: 25px;
 }
 
-.quizGame > h1 {
+.quizGame>h1 {
     width: 100%;
     text-align: center;
     margin-bottom: 25px;
 }
 
-.quizQuestions > li > label {
+.quizQuestions>li>label {
     display: block;
     margin-bottom: 5px;
 }
 
-.quizQuestions > li {
+.quizQuestions>li {
     margin-bottom: 15px;
 }
 
@@ -56,9 +58,10 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
-.quizAnswers > li > button {
+.quizAnswers>li>button {
     background-color: white;
     border: none;
     border-radius: 5px;
@@ -68,34 +71,49 @@
     color: #525151;
 }
 
-.quizAnswers > li > button:disabled {
+.quizAnswers>li>button:disabled {
     cursor: default;
 }
 
-.quizAnswers > li > button.selected {
+.quizAnswers>li>button.selected {
     background-color: #03a9f4;
     color: white;
 }
 
-.quizAnswers > li > button.success {
+.quizAnswers>li>button.success {
     background-color: #4caf50;
     color: white;
 }
 
-.quizAnswers > li > button.error {
+.quizAnswers>li>button.error {
     background-color: crimson;
     color: white;
 }
 
-.quizAnswers > li:not(:last-child) > button {
+.quizAnswers>li:not(:last-child)>button {
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .quizButtons {
     display: flex;
 }
 
-.quizButtons > button {
+.quizButtons>button {
     margin-right: 5px;
 }
 
+@media all and (max-width: 640px) {
+    .quizForm {
+        --quiz-form-width: calc(100% - 25px);
+    }
+
+    .quizGame {
+        --quiz-game-width: calc(100% - 25px);
+    }
+
+    .quizForm,
+    .quizGame {
+        margin: 0 auto;
+    }
+}

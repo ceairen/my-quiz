@@ -20,11 +20,16 @@ export default function Home() {
 
   return (
     <section className="quiz">
-      {
-        currentQuiz === null
-        ? <QuizCreation handleLoadedQuiz={(quiz) => setCurrentQuiz(quiz)} />
-        : <QuizContent mode="write" quiz={currentQuiz} handleCancelQuiz={() => setCurrentQuiz(null)} handleFinishQuiz={handleFinishQuiz} />
-      }
+      {currentQuiz === null ? (
+        <QuizCreation handleLoadedQuiz={(quiz) => setCurrentQuiz(quiz)} />
+      ) : (
+        <QuizContent
+          mode="write"
+          quiz={currentQuiz}
+          handleCancelQuiz={() => setCurrentQuiz(null)}
+          handleFinishQuiz={handleFinishQuiz}
+        />
+      )}
     </section>
   );
 }

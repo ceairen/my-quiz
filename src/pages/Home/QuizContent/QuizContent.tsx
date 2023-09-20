@@ -116,9 +116,7 @@ export default function QuizContent({
               {finishableQuiz ? (
                 <button onClick={handleConfirmAnswers}>Finish this quiz</button>
               ) : null}
-              <button
-                onClick={() => handleCancelQuiz && handleCancelQuiz()}
-              >
+              <button onClick={() => handleCancelQuiz && handleCancelQuiz()}>
                 Cancel this quiz
               </button>
             </div>

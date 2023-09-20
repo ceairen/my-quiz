@@ -16,7 +16,7 @@ export default function QuizCreation({ handleLoadedQuiz }: PropsQuizCreation) {
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [formError, setFormError] = useState<string | null>(null);
-  const [fetchQuizError, setFetchQuizError] = useState<string | null>(null)
+  const [fetchQuizError, setFetchQuizError] = useState<string | null>(null);
 
   async function getCategories() {
     try {
@@ -28,13 +28,13 @@ export default function QuizCreation({ handleLoadedQuiz }: PropsQuizCreation) {
   }
 
   async function getQuiz(category: string, difficulty: string) {
-    setIsLoading(isLoading => true);
+    setIsLoading((isLoading) => true);
     try {
       const q = await apiInstance.getQuiz(category, difficulty);
       handleLoadedQuiz(q);
     } catch (e: any) {
-      setFetchQuizError(fetchQuizError => e);
-      setIsLoading(isLoading => false);
+      setFetchQuizError((fetchQuizError) => e);
+      setIsLoading((isLoading) => false);
       console.log(e);
     }
   }
@@ -103,11 +103,9 @@ export default function QuizCreation({ handleLoadedQuiz }: PropsQuizCreation) {
           <button id="createBtn" onClick={handleCreateQuiz}>
             Create
           </button>
-          {
-            fetchQuizError === null
-            ? null
-            : <p className="quizFormError">{fetchQuizError}</p>
-          }
+          {fetchQuizError === null ? null : (
+            <p className="quizFormError">{fetchQuizError}</p>
+          )}
         </div>
       )}
     </>
