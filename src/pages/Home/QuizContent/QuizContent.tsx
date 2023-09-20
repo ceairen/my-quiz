@@ -111,17 +111,15 @@ export default function QuizContent({
               );
             })}
           </ul>
-          {mode === "write" ? (
+          {mode === "write" && (
             <div className="quizButtons">
-              {finishableQuiz ? (
+              {finishableQuiz && (
                 <button onClick={handleConfirmAnswers}>Finish this quiz</button>
-              ) : null}
+              )}
               <button onClick={() => handleCancelQuiz && handleCancelQuiz()}>
                 Cancel this quiz
               </button>
             </div>
-          ) : (
-            <></>
           )}
         </div>
       )}

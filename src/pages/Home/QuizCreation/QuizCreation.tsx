@@ -95,15 +95,19 @@ export default function QuizCreation({ handleLoadedQuiz }: PropsQuizCreation) {
               <option value="" disabled>
                 Select difficulty
               </option>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
+              {["Easy", "Medium", "Hard"].map((v, i) => {
+                return (
+                  <option value={v.toLowerCase()} key={i}>
+                    {v}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <button id="createBtn" onClick={handleCreateQuiz}>
             Create
           </button>
-          {fetchQuizError === null ? null : (
+          {fetchQuizError !== null && (
             <p className="quizFormError">{fetchQuizError}</p>
           )}
         </div>
