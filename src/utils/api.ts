@@ -1,4 +1,4 @@
-import { TCategory, TQuiz } from "./types";
+import { TCategory, TQuiz, TQuizPartialQuestion, TQuizQuestion } from "./types";
 import parse from "html-react-parser";
 
 class Api {
@@ -42,20 +42,23 @@ class Api {
       );
       const json = await res.json();
       const results = json.results;
-      const quiz: TQuiz = results.map((r: any) => {
-        let question: any = {};
-        Object.entries(r).map(([k, v]) => {
-          if (k === "incorrect_answers") {
-            question[k] = (v as string[]).map((a) => parse(a));
-          } else {
-            question[k] = parse(v as string);
-          }
-        });
+      const quiz: TQuiz = results.map((r: TQuizPartialQuestion) => {
+        let question: TQuizQuestion = {
+          category: r.category,
+          correct_answer: parse(r.correct_answer) as string,
+          difficulty: r.difficulty,
+          incorrect_answers: r.incorrect_answers.map(
+            (answer) => parse(answer) as string
+          ),
+          question: parse(r.question) as string,
+          type: r.type,
+          randomized_answers: [],
+          player_answer: null,
+        };
         question.randomized_answers = this.shuffle([
           ...question.incorrect_answers,
           question.correct_answer,
         ]);
-        question.player_answer = null;
         return question;
       });
       return Promise.resolve(quiz);

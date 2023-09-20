@@ -32,8 +32,8 @@ export default function QuizCreation({ handleLoadedQuiz }: PropsQuizCreation) {
     try {
       const q = await apiInstance.getQuiz(category, difficulty);
       handleLoadedQuiz(q);
-    } catch (e: any) {
-      setFetchQuizError((fetchQuizError) => e);
+    } catch (e) {
+      setFetchQuizError((fetchQuizError) => e as string);
       setIsLoading((isLoading) => false);
       console.log(e);
     }
